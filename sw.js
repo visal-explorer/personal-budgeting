@@ -1,6 +1,6 @@
 // Offline support: cache the app shell, serve network-first so updates show up.
-var CACHE = 'pocket-budget-v1';
-var ASSETS = ['./', 'index.html', 'css/styles.css', 'js/store.js', 'js/charts.js', 'js/app.js', 'icon.svg', 'manifest.webmanifest'];
+var CACHE = 'pocket-budget-v2';
+var ASSETS = ['./', 'index.html', 'css/styles.css', 'js/store.js', 'js/charts.js', 'js/xlsx.js', 'js/app.js', 'icon.svg', 'manifest.webmanifest'];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(ASSETS); }));

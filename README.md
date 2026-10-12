@@ -5,15 +5,21 @@ It's plain HTML/CSS/JavaScript — no build step, no server, no account — so i
 
 ## Features
 
-- **Daily expense & income records** — amount, category, date, payment method and note. Quick-add with the ＋ button (or press `N`). Notes autocomplete from earlier records.
-- **Monthly budget** — an overall limit plus optional per-category limits, with "copy last budget" and a planned-savings preview against the month's income.
-- **Balance per month** — income, spending and net for every month; the balance can carry over from month to month starting from an opening balance you set.
-- **Dashboard** — income / spent / balance / budget-left tiles, budget progress with pace warning and "safe to spend per day", daily spending chart vs. the daily budget, spending by category with limits, a 6-month income-vs-expense trend, recent records and biggest expenses.
-- **Records page** — grouped by day with daily totals; search and filter by type or category; export the month to CSV.
-- **Recurring records** — rent, bills, subscriptions or salary are added automatically every month on their day (pause/resume anytime).
-- **Custom categories** — rename, change icons, add or remove categories.
-- **Backup & restore** — download your data as JSON and restore it on another device; export everything to CSV for spreadsheets.
-- **Works on phone** — responsive layout with bottom navigation, dark mode, and installable as an app (PWA) that works offline.
+- **Daily records** — expenses and income with amount, **currency**, category, date, payment method and note. Quick-add with the ＋ button (or press `N`).
+- **Multi-currency** — every record has its own currency and exchange rate (e.g. USD and KHR). All totals, budgets and balances are converted to the **base currency, USD**. Rates are editable in Settings or can be updated online.
+- **Clear money terms on the dashboard**
+  - **Income** — money that came in this month.
+  - **Available to spend** — this month's income − this month's spending.
+  - **Net worth** — everything you own so far: starting balance + all income − all spending.
+  - **Budget left** / **Safe to spend per day** — how much of your monthly budget remains.
+- **Monthly budget** — overall limit plus optional per-category limits, copy last budget, planned-savings preview.
+- **Dashboard** — budget progress with pace warning, daily spending chart, spending by category, 6-month trend, breakdown by currency, recent and biggest records. Click a day or category to jump to its records.
+- **Records page** — grouped by day; search and filter by type, category, payment method, currency or day, with one-click **Clear filters**.
+- **Bank-style statement** — pick a period (month, 3 months, year, all time, custom) and get opening balance, money in, money out, closing balance and a running balance per record. Export as **Excel (.xlsx)** with Statement / By category / By currency sheets, as **CSV**, or **Print / Save as PDF**.
+- **Recurring records** — rent, bills, subscriptions or salary are added automatically every month (any currency).
+- **Everything customizable** in Settings — app name, your name on statements, theme, categories and payment methods (add, rename, change icon, reorder, delete-and-move records), currencies and rates, wording/labels (rename "Income", "Expense", "Available to spend", "Net worth", "Paid with"…), which dashboard sections show, budget warning %, and defaults for new records.
+- **Backup & restore** — download your data as JSON and restore it on another device.
+- **Works on phone** — responsive layout with bottom navigation, dark mode, installable as an app (PWA) that works offline.
 
 ## Your data
 
@@ -53,7 +59,8 @@ index.html            App shell and add/edit dialog
 css/styles.css        Styles (light + dark themes, responsive)
 js/store.js           Data model, localStorage persistence, summaries, recurring, import/export
 js/charts.js          Small SVG bar charts with tooltips (no libraries)
-js/app.js             Views: dashboard, records, budget, recurring, settings
+js/xlsx.js            Tiny .xlsx (Excel) writer used by the statement export
+js/app.js             Views: dashboard, records, budget, statement, recurring, settings
 sw.js                 Service worker for offline use
 manifest.webmanifest  PWA manifest
 ```
